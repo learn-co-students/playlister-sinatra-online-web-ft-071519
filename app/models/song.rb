@@ -2,8 +2,9 @@ require 'pry'
 
 class Song < ActiveRecord::Base
   belongs_to :artist
-  has_many :songGenre
-  has_many :genres, through: :songGenre 
+  has_many :song_genres
+  has_many :genres, through: :song_genres 
+  
   # attr_accessor :genre_ids
 
   def slug

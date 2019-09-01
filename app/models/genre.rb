@@ -1,9 +1,12 @@
 class Genre < ActiveRecord::Base
   
-  has_many :artists 
-  has_many :songGenre
-  has_many :songs, through: :songGenre
   
+  has_many :song_genres
+  has_many :songs, through: :song_genres
+  
+ 
+  has_many :artists , through: :songs
+ 
     def slug
     newarray =[]
   self.name.split(" ").each do|name|
