@@ -16,4 +16,14 @@ class ApplicationController < Sinatra::Base
     @artists = Artist.all
     erb :'/artists/index' 
   end
+  
+  get '/genres' do
+    @genres = Genre.all
+    erb :'/genres/index' 
+  end
+  
+  get 'songs/:slug' do
+    binding.pry
+    erb :show
+  end
 end

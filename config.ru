@@ -10,4 +10,3 @@ rescue ActiveRecord::PendingMigrationError => err
   exit 1
 end
 
-run ApplicationController
