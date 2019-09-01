@@ -22,8 +22,12 @@ class ApplicationController < Sinatra::Base
     erb :'/genres/index' 
   end
   
-  get 'songs/:slug' do
-    binding.pry
+  get '/songs/:slug' do
+    
+    @song = Song.find_by_slug(params[:slug])
+    
     erb :show
   end
+
+  
 end
