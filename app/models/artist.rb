@@ -6,15 +6,14 @@ class Artist < ActiveRecord::Base
   
   
   
-  # def slug
-  #   newarray =[]
-  # self.name.split(" ").each do|name|
-  #     newarray << name.downcase
-  # end
-  # newarray = newarray.join("-")
-  #   self.slug = newarray
-  #   write_attribute(:slug, newarray)
-  # end 
+  def slug
+    newarray =[]
+  self.name.split(" ").each do|name|
+      newarray << name.downcase
+  end
+  newarray = newarray.join("-")
+
+  end 
   
   # def slug
   # newarray =[]
@@ -24,14 +23,21 @@ class Artist < ActiveRecord::Base
   #   end.join("-")
   # end
   
-def name=(name)
-      newarray =[]
-  name.split(" ").each do|eachname|
-      newarray << eachname.downcase
+# def name=(name)
+#       newarray =[]
+#   name.split(" ").each do|eachname|
+#       newarray << eachname.downcase
+#   end
+#   write_attribute(:name, name)
+#     newarray = newarray.join("-") 
+#   write_attribute(:slug, newarray)
+#   self.save
+# end
+
+def self.find_by_slug(slugyname)
+  self.all.find do |i| 
+    i.slug == slugyname
   end
-   write_attribute(:name, name)
-    newarray = newarray.join("-") 
-  write_attribute(:slug, newarray)
-  self.save
+
 end
 end
